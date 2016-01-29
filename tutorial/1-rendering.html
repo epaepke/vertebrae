@@ -52,6 +52,9 @@ var renderSomethingOnThePage = function(message) {
 renderSomethingOnThePage(
   'This is an example of how to use our rendering method.');
 
+renderSomethingOnThePage(
+  'Second addition.');
+
 /* Here are a few more examples. Every call to our rendering function (above)
  * will draw something to the page using the template defined in that function:
  */
@@ -101,7 +104,12 @@ var Message = Backbone.Model.extend({
      * Putting it into the initialize function let's us be sure that
      * all models that are created will have event listeners on them.
      */
-    this.on(YOUR CODE HERE);
+   
+
+
+    this.on('change', function(e) {
+      this.alertThisMessage();
+    });
     /* It is your turn to write the event handler.
      *
      * Make an event listener that will listen for a `change` in this model's
